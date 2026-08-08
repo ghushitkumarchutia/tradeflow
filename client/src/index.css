@@ -1,6 +1,27 @@
 @import "tailwindcss";
 
-/* Base styles / CSS variables can go here if needed */
-:root {
-  /* Using standard colors */
+@theme {
+  --color-brand-dark: #103b2c;
+  --color-brand-DEFAULT: #144b38;
+  --color-brand-light: #d1f7c4;
+  --color-brand-muted: #e8fce2;
+
+  --color-bg-base: #f5f7f9;
+  --color-bg-surface: #ffffff;
+  
+  --color-text-main: #1e293b;
+  --color-text-muted: #64748b;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
