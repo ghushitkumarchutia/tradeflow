@@ -47,7 +47,8 @@ export interface StockMovement {
   createdBy: string;
   createdAt: string;
   updatedAt: string;
-  product?: Product;
+  product: Product;
+  user: { name: string };
 }
 
 export interface ChallanItem {
