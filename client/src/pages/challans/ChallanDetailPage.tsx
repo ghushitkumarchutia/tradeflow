@@ -125,7 +125,7 @@ export function ChallanDetailPage() {
     {
       key: "unitPrice",
       header: "Unit Price",
-      render: (item: ChallanItem) => `$${item.unitPriceSnapshot.toFixed(2)}`,
+      render: (item: ChallanItem) => `$${Number(item.unitPriceSnapshot).toFixed(2)}`,
     },
     {
       key: "quantity",
@@ -138,7 +138,7 @@ export function ChallanDetailPage() {
       key: "total",
       header: "Total Value",
       render: (item: ChallanItem) =>
-        `$${(item.unitPriceSnapshot * item.quantity).toFixed(2)}`,
+        `$${(Number(item.unitPriceSnapshot) * item.quantity).toFixed(2)}`,
     },
   ];
 

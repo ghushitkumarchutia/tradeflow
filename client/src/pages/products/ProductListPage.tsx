@@ -134,7 +134,7 @@ export function ProductListPage() {
     {
       key: "unitPrice",
       header: "Price",
-      render: (p: Product) => `$${p.unitPrice.toFixed(2)}`,
+      render: (p: Product) => `$${Number(p.unitPrice).toFixed(2)}`,
     },
     {
       key: "currentStock",
