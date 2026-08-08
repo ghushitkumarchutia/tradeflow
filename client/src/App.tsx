@@ -9,6 +9,9 @@ import { CustomerListPage } from "./pages/customers/CustomerListPage";
 import { CustomerDetailPage } from "./pages/customers/CustomerDetailPage";
 import { ProductListPage } from "./pages/products/ProductListPage";
 import { StockMovementsPage } from "./pages/products/StockMovementsPage";
+import { ChallanListPage } from "./pages/challans/ChallanListPage";
+import { ChallanCreatePage } from "./pages/challans/ChallanCreatePage";
+import { ChallanDetailPage } from "./pages/challans/ChallanDetailPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,12 +21,6 @@ const queryClient = new QueryClient({
     },
   },
 });
-
-const Placeholder = ({ title }: { title: string }) => (
-  <div className='flex items-center justify-center h-full text-gray-400 font-medium'>
-    {title} Module (Coming Soon)
-  </div>
-);
 
 export default function App() {
   return (
@@ -50,18 +47,9 @@ export default function App() {
                   element={<StockMovementsPage />}
                 />
 
-                <Route
-                  path='/challans'
-                  element={<Placeholder title='Challans' />}
-                />
-                <Route
-                  path='/challans/new'
-                  element={<Placeholder title='New Challan' />}
-                />
-                <Route
-                  path='/challans/:id'
-                  element={<Placeholder title='Challan Details' />}
-                />
+                <Route path='/challans' element={<ChallanListPage />} />
+                <Route path='/challans/new' element={<ChallanCreatePage />} />
+                <Route path='/challans/:id' element={<ChallanDetailPage />} />
               </Route>
             </Route>
 
