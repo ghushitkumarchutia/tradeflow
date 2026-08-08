@@ -5,6 +5,10 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AppLayout } from "./components/layout/AppLayout";
 import { LoginPage } from "./pages/LoginPage";
 import { DashboardPage } from "./pages/DashboardPage";
+import { CustomerListPage } from "./pages/customers/CustomerListPage";
+import { CustomerDetailPage } from "./pages/customers/CustomerDetailPage";
+import { ProductListPage } from "./pages/products/ProductListPage";
+import { StockMovementsPage } from "./pages/products/StockMovementsPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,22 +41,13 @@ export default function App() {
                 />
                 <Route path='/dashboard' element={<DashboardPage />} />
 
-                <Route
-                  path='/customers'
-                  element={<Placeholder title='Customers' />}
-                />
-                <Route
-                  path='/customers/:id'
-                  element={<Placeholder title='Customer Details' />}
-                />
+                <Route path='/customers' element={<CustomerListPage />} />
+                <Route path='/customers/:id' element={<CustomerDetailPage />} />
 
-                <Route
-                  path='/products'
-                  element={<Placeholder title='Products' />}
-                />
+                <Route path='/products' element={<ProductListPage />} />
                 <Route
                   path='/stock-movements'
-                  element={<Placeholder title='Stock Movements' />}
+                  element={<StockMovementsPage />}
                 />
 
                 <Route
