@@ -1,4 +1,4 @@
-import { Prisma } from "../../../../generated/prisma/index.js";
+import { Prisma } from "../../generated/prisma/client.js";
 import { prisma } from "../../common/config/db.js";
 import { ApiError } from "../../common/utils/api-error.js";
 import { parsePagination } from "../../common/utils/pagination.js";

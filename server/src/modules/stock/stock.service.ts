@@ -1,4 +1,4 @@
-import { Prisma } from "../../../../generated/prisma/index.js";
+import { Prisma } from "../../generated/prisma/client.js";
 import { prisma } from "../../common/config/db.js";
 import { ApiError } from "../../common/utils/api-error.js";
 import { parsePagination } from "../../common/utils/pagination.js";
@@ -53,7 +53,7 @@ export const createStockMovement = async (
   input: CreateStockMovementInput,
   userId: string,
 ) => {
-  return prisma.$transaction(async (tx) => {
+  return prisma.$transaction(async (tx: any) => {
     const product = await tx.product.findUnique({
       where: { id: input.productId },
     });

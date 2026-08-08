@@ -1,4 +1,4 @@
-import { Prisma } from "../../../../generated/prisma/index.js";
+import { Prisma } from "../../generated/prisma/client.js";
 import { prisma } from "../../common/config/db.js";
 import { ApiError } from "../../common/utils/api-error.js";
 import { parsePagination } from "../../common/utils/pagination.js";
@@ -70,7 +70,7 @@ export const createChallan = async (
   input: CreateChallanInput,
   userId: string,
 ) => {
-  return prisma.$transaction(async (tx) => {
+  return prisma.$transaction(async (tx: any) => {
     const customer = await tx.customer.findUnique({
       where: { id: input.customerId },
     });
@@ -93,7 +93,7 @@ export const createChallan = async (
 
       totalQuantity += item.quantity;
       challanItemsData.push({
-        productId: product.id,
+        product: { connect: { id: product.id } },
         quantity: item.quantity,
         productNameSnapshot: product.productName,
         skuSnapshot: product.sku,
@@ -123,7 +123,7 @@ export const createChallan = async (
 };
 
 export const confirmChallan = async (challanId: string, userId: string) => {
-  return prisma.$transaction(async (tx) => {
+  return prisma.$transaction(async (tx: any) => {
     const challan = await tx.challan.findUnique({
       where: { id: challanId },
       include: { items: true },

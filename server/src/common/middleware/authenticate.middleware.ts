@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { ApiError } from "../utils/api-error.js";
 import { verifyToken } from "../utils/jwt.utils.js";
-import { Role } from "../../../../generated/prisma/index.js";
+import { Role } from "../../generated/prisma/client.js";
 
 export const authenticate = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization;

@@ -1,4 +1,4 @@
-import { Prisma } from "../../../generated/prisma/index.js";
+import { Prisma } from "../../generated/prisma/client.js";
 
 export async function generateChallanNumber(tx: Prisma.TransactionClient): Promise<string> {
   const currentYear = new Date().getFullYear();
