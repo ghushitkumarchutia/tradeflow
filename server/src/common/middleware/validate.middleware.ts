@@ -17,9 +17,9 @@ export const validate = (schema: ZodObject<any, any>) => {
       return next(ApiError.badRequest(message));
     }
 
-    req.body = result.data.body;
-    req.query = result.data.query as any;
-    req.params = result.data.params as any;
+    if (result.data.body) req.body = result.data.body;
+    if (result.data.query) Object.assign(req.query, result.data.query);
+    if (result.data.params) Object.assign(req.params, result.data.params);
     
     next();
   };
