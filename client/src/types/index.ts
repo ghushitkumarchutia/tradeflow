@@ -65,14 +65,16 @@ export interface ChallanItem {
 
 export interface Challan {
   id: string;
-  challanNo: string;
+  challanNumber: string;
   customerId: string;
   status: ChallanStatus;
+  totalQuantity: number;
   totalAmount: number;
-  issuedBy: string;
+  createdById: string;
   createdAt: string;
   updatedAt: string;
-  customer?: Customer;
+  customer: Customer;
+  createdBy: { name: string; email: string };
   items: ChallanItem[];
 }
 
